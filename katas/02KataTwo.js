@@ -6,7 +6,24 @@ var assert = require('assert');
 // There will always be only one integer that appears an odd number of times.
 
 function findOdd(arr) {
-  // Your code here
+  const stats = {};
+  let answer;
+
+  arr.forEach((item, index) => {
+    if (stats[item]) {
+      stats[item] = stats[item] + 1;
+    } else {
+      stats[item] = 1;
+    }
+  });
+
+  Object.keys(stats).forEach(key => {
+    if (stats[key] % 2 === 1) {
+      answer = key;
+    }
+  });
+
+  return answer;
 }
 
 

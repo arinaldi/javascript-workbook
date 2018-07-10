@@ -8,7 +8,18 @@ var assert = require('assert');
 // For an input: "is2 Thi1s T4est 3a" the function should return "Thi1s is2 3a T4est"
 
 function order(words) {
-  // Your code here
+  if (!words) return "";
+
+  const array = words.split(" ");
+  const answer = [];
+  for (let i = 1; i <= array.length; i++) {
+    for (let j = 0; j < array.length; j++) {
+      if (array[j].includes(i.toString())) {
+        answer.push(array[j]);
+      }
+    }
+  }
+  return answer.join(" ");
 }
 
 
